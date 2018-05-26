@@ -2,13 +2,26 @@
 const buttonsWrap = document.querySelector('.calculator__buttons');
 const screen = document.querySelector('.calculator__screen');
 
+// Rounding number function - source MDN
+const round = (number, precision) => {
+  const shift = (number, exponent) => {
+    const numArray = ('' + number).split('e');
+    return +(
+      numArray[0] +
+      'e' +
+      (numArray[1] ? +numArray[1] + exponent : exponent)
+    );
+  };
+  return shift(Math.round(shift(number, +precision)), -precision);
+};
+
 // Defining basic arithmetic operations for calculator
-const addition = (a, b) => a + b;
-const subtraction = (a, b) => a - b;
-const multiplication = (a, b) => a * b;
-const division = (a, b) => a / b;
-const sqrt = a => Math.sqrt(a);
-const percent = a => a / 100;
+const addition = (a, b) => round(a + b, 8);
+const subtraction = (a, b) => round(a - b, 8);
+const multiplication = (a, b) => round(a * b, 8);
+const division = (a, b) => round(a / b, 8);
+const sqrt = a => round(Math.sqrt(a), 8);
+const percent = a => round(a / 100, 8);
 
 // Setting up variables containing numbers and arithmetic operations
 let globalState = [];
@@ -16,7 +29,21 @@ let localState = '';
 
 // Function for displaying numbers and operations results
 const displayOnScreen = input => {
-  screen.innerText = input;
+  const stringy = input.toString();
+  const dotIdx = stringy.indexOf('.');
+  const ipl = stringy.replace('.', '').length;
+  if (ipl <= 10) {
+    screen.innerText = stringy;
+  } else {
+    if (dotIdx === -1 || dotIdx > 10) {
+      screen.innerText = stringy
+        .slice(0, 8)
+        .concat('E')
+        .concat(ipl - 8);
+    } else if (dotIdx >= 0 && dotIdx <= 10) {
+      screen.innerText = stringy.slice(0, 10);
+    }
+  }
 };
 
 // Functions solving equasions
@@ -54,8 +81,10 @@ const shortSolver = arr => {
 const stateChanges = input => {
   const gl = globalState.length;
   if (!isNaN(parseInt(input))) {
-    localState += input;
-    displayOnScreen(localState);
+    if (localState.replace('.', '').length < 10) {
+      localState += input;
+      displayOnScreen(localState);
+    }
   } else if (input === '.') {
     if (localState.indexOf('.') === -1) {
       localState += input;
