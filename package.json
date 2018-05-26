@@ -1,0 +1,26 @@
+{
+  "name": "js-calculator",
+  "version": "1.0.0",
+  "description": "JS calculator (freeCodeCamp project)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kejgind/js-calculator.git"
+  },
+  "keywords": [
+    "js",
+    "calculator"
+  ],
+  "author": "Krzysztof Garbowski",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kejgind/js-calculator/issues"
+  },
+  "homepage": "https://github.com/kejgind/js-calculator#readme",
+  "devDependencies": {
+    "eslint": "^4.19.1"
+  }
+}

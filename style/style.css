@@ -1,0 +1,38 @@
+body {
+  background-color: beige;
+}
+
+.calculator {
+  max-width: 460px;
+  background-color: #333;
+  margin: 0 auto;
+  padding-bottom: 3rem;
+}
+
+.calculator__screen {
+  width: 96%;
+  margin: 0 auto;
+  height: 80px;
+  background-color: rebeccapurple;
+}
+
+.calculator__buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.calculator__button__wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.calculator__button {
+  width: 70px;
+  height: 30px;
+}
+
+.calculator__name, .calculator__button__label {
+  color: whitesmoke;
+}
