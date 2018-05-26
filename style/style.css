@@ -14,6 +14,10 @@ body {
   margin: 0 auto;
   height: 80px;
   background-color: rebeccapurple;
+  font-size: 3rem;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 .calculator__buttons {
@@ -33,6 +37,7 @@ body {
   height: 30px;
 }
 
-.calculator__name, .calculator__button__label {
+.calculator__name,
+.calculator__button__label {
   color: whitesmoke;
 }
