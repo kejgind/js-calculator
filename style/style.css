@@ -1,23 +1,33 @@
+@import url("https://fonts.googleapis.com/css?family=Codystar");
+
 body {
   background-color: beige;
 }
 
 .calculator {
-  max-width: 460px;
-  background-color: #333;
+  max-width: 400px;
+  background-color: #12324b;
   margin: 0 auto;
   padding-bottom: 3rem;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.418);
+}
+
+.calculator__name {
+  padding: 2rem 5px;
 }
 
 .calculator__screen {
+  font-family: "Codystar", cursive;
   width: 96%;
   margin: 0 auto;
   height: 80px;
-  background-color: rebeccapurple;
-  font-size: 3rem;
+  background-color: #410e15;
+  font-size: 2.8rem;
+  font-weight: 900;
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  color: #fff7ff;
 }
 
 .calculator__buttons {
@@ -32,9 +42,38 @@ body {
   justify-content: center;
 }
 
+.calculator__button__label {
+  margin: 15px auto 5px;
+  font-size: 1.4rem;
+  font-family: "Courier New", Courier, monospace;
+}
+
 .calculator__button {
-  width: 70px;
+  width: 60px;
   height: 30px;
+  border: none;
+  border-radius: 15px;
+  position: relative;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.418);
+}
+
+.calculator__button::after {
+  content: "";
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.418);
+  top: 2px;
+  left: 17px;
+}
+
+.button--white {
+  background-color: #f5feff;
+}
+
+.button--blue {
+  background-color: #4cc5fa;
 }
 
 .calculator__name,

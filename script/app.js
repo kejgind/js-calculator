@@ -161,13 +161,10 @@ const stateChanges = input => {
       globalState[1] = input;
     }
   }
-  console.log(localState);
-  console.log(globalState);
 };
 
 // Function to handle button clicks
 const buttonsHandler = event => {
-  console.log(event.target);
   event.target.classList.contains('calculator__button')
     ? stateChanges(event.target.dataset.button)
     : '';
